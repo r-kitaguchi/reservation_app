@@ -1,0 +1,19 @@
+<%= render "shared/flash"%>
+<table class = "rsv_show_table">
+  <tr>
+    <th>部屋</th>
+    <td><%= @room.name %></td>
+  </tr>
+  <tr>
+    <th>チェックイン</th>
+    <td class = "rsv_field"><%= @reservation.start_date %></td>
+  </tr>
+  <tr>
+    <th>チェックアウト</th>
+    <td class = "rsv_field"><%= @reservation.end_date %></td>
+  </tr>
+  <tr>
+    <th>合計金額</th>
+    <td class = "rsv_field"><%= @reservation.number * @room.price %>円</td>
+  </tr>
+</table>

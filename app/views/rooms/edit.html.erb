@@ -1,0 +1,31 @@
+<main>
+  <%= render "devise/shared/error_messages", resource: @room%>
+  <h2>ルーム編集</h2>
+  <%= form_with model: @room, url: room_path, local: true do |f|%>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+    <table>
+      <tr>
+        <th>ルーム名</th>
+        <td><%= @room.name %></td>
+      </tr>
+      <tr>
+        <th>ルーム紹介</th>
+        <td><%= f.text_area :introduction, placeholder: "ルーム説明を入力", class: "form_area" %></td>
+      </tr>
+      <tr>
+        <th>料金</th>
+        <td><%= f.text_field :price, placeholder: "一日あたりの料金を入力", class: "form_field" %></td>
+      </tr>
+      <tr>
+        <th>住所</th>
+        <td><%= @room.address %></td>
+      </tr>
+      <tr>
+        <th>ルーム画像</th>
+        <td><%= f.file_field :image %></td>
+      </tr>
+    </table>
+    <p><%= f.submit "登録", class: "submit_but"%></p>
+  <% end %>
+  <p><%= link_to "戻る", rooms_path %></p>
+</main>

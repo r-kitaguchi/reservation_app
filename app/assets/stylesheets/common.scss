@@ -1,0 +1,359 @@
+@import "font-awesome";
+@mixin button{
+  background-color: rgb(84, 179, 216);
+  border-color: rgb(63, 136, 165);
+  border-radius: 5px;
+  color: #fff;
+  &:hover{
+    background-color: rgb(123, 190, 216);
+  }
+}
+@mixin list-image($image){
+  background-image: image_url($image);
+  background-size: cover;
+}
+@mixin flex($justify){
+  display: flex;
+  justify-content: $justify;
+}
+@mixin icon($size){
+  border-radius: 50%;
+  height: $size;
+  object-fit: cover;
+  width: $size;
+}
+@mixin rsv_layout($space, $width){
+  margin-top: 30px;
+    table{
+      border-collapse: separate;
+      border-spacing: $space;
+      .price{
+        font-size: 20px;
+      }
+      .rsv_field{
+        font-size: 16px;
+        height: 30px;
+        width: $width;
+      }
+    }
+    p{
+      text-align: center;
+    }
+}
+@mixin link($color){
+    color: $color;
+    text-decoration: none;
+}
+$border: 1px solid rgb(180, 179, 179);
+body{
+  @include flex(space-between);
+  flex-direction: column;
+  height: 100vh;
+  margin: 0;
+}
+ul{
+  list-style: none;
+}
+header{
+  background-color: black;
+  color: white;
+  @include flex(space-between);
+  height: 12vh;
+  padding-right: 20px;
+  h1{
+    margin-left: 10px;
+  }
+  .title_link{
+    @include link(#fff);
+  }
+  .search_box{
+    margin-right: auto;
+    .search_field{
+      height: 30px;
+      width: 120px;
+    }
+  }
+  ul{
+    align-items: center;
+    display: flex;
+  }
+  li{
+    padding-right: 10px ;
+  }
+  .header_but{
+    @include button;
+    text-decoration: none;
+    padding: 5px;
+  }
+  .user_top_icon{
+    @include icon(50px);
+  }
+}
+.menu_list{
+  background-color:rgb(216, 210, 210);
+  display: none;
+  margin: 0;
+  padding: 10px 20px;
+  position: absolute;
+  right: 0;
+  top: 12vh;
+  li + li{
+    margin-top: 10px;
+  }
+}
+.menu_link{
+  @include link(#000);
+}
+.menu_display{
+  display: block;
+}
+.black_back{
+  display: none;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.2);
+  position: absolute;
+}
+.black_back_display{
+  display: block;
+}
+.room_list{
+  display: flex;
+  flex-wrap: wrap;
+}
+.background{
+  background-image: image_url('top_image.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.top_search{
+  background-color: #fff;
+  border: 1px solid black;
+  margin: 100px;
+  padding: 30px;
+  width: 30%;
+  ul{
+    padding-left: 0;
+  }
+  .top_search_field{
+    font-size: 18px;
+    height: 30px;
+    width: 100%;
+  }
+  .search_but{
+    @include button;
+    margin-top: 10px;
+    width: 103%;
+  }
+}
+h3{
+  margin: 50px auto 0 auto;
+}
+.home_list{
+  @include flex(space-around);
+  padding-left: 0;
+  li{
+    background-color: rgba(0,0,0,0.2);
+    font-size: 30px;
+    padding: 150px 50px;
+  }
+  .list_link{
+    @include link(#fff);
+  }
+  .sapporo{
+    @include list-image('Sapporo.jpg');
+  }
+  .tokyo{
+    @include list-image('Tokyo.jpg');
+  }
+  .osaka{
+    @include list-image('Osaka.jpg');
+  }
+  .fukuoka{
+    @include list-image('Fukuoka.jpg');
+    background-position: 35% 65%;
+  }
+}
+.nav_main_flex{
+  display: flex;
+}
+nav{
+  height: 100%;
+  min-height: 85vh;
+  width: 20%;
+  border-right: 1px solid black;
+  li{
+    margin-top: 20px;
+  }
+}
+.notice{
+  background-color: rgb(97, 97, 247);
+  color: #fff;
+}
+.alert{
+  background-color: coral;
+}
+#error_explanation{
+  background-color: coral;
+}
+main{
+  margin: 100px auto;
+  h2{
+    text-align: center;
+  }
+  table{
+    border-collapse: separate;
+    border-spacing: 40px;
+    margin: 0 auto;
+    width: 80vw;
+    td{
+      text-align: center;
+    }
+  }
+  p{
+    text-align: center;
+  }
+}
+.user_icon{
+  @include icon(100px);
+}
+.field{
+  margin-top: 10px;
+}
+.actions{
+  margin: 10px auto;
+}
+.form_area, .form_field{
+  width: 400px;
+  font-size: 18px;
+}
+.form_field{
+  height: 30px;
+}
+.form_area{
+  height: 200px;
+}
+.submit_but{
+  @include button;
+  font-weight: bold;
+  height: 40px;
+  padding: 5px 30px;
+}
+.rsv{
+  @include flex(space-around);
+  .rsv_image{
+    margin: 20px;
+    width: 500px;
+    height: 350px;
+    object-fit: cover;
+  }
+  .rsv_user_icon{
+    @include icon(70px);
+    margin-left: 20px;
+  }
+  .rsv_room_detail{
+    div{
+      display: flex;
+      ul{
+        margin-top: 0;
+      }
+      li + li{
+        margin-top: 10px;
+      }
+    }
+    p{
+      border-top: $border;
+      border-bottom: $border;
+      margin-left: 30px;
+      padding: 20px;
+    }
+  }
+  .rsv_menu{
+    border: 1px solid #000;
+    height: 450px;
+    @include rsv_layout(15px, 200px);
+  }
+}
+.confirm_rsv{
+  margin-top: 30px;
+  h2{
+    text-align: center;
+  }
+  @include rsv_layout(5px, 500px);
+  table{
+    margin: 0 auto;
+    td{
+      border-top: $border;
+      text-align: center;
+    }
+    .rsv_field{
+      border: $border;
+      background-color: rgb(182, 179, 179);
+    }
+  }
+}
+.rsv_show_table{
+  border: $border;
+  border-collapse: separate;
+  border-spacing: 40px;
+  margin: auto;
+  width: 500px;
+}
+footer{
+  background-color: black;
+  color: white;
+  margin-top: auto;
+  text-align: center;
+}
+@media screen and (max-width: 800px){
+  header{
+    .search_box{
+      display: none;
+    }
+  }
+  .top_search{
+    width: 60%;
+  }
+  .home_list{
+    flex-direction: column;
+    li{
+      text-align: center;
+      padding: 50px 100px;
+    }
+    .sapporo, .tokyo, .osaka, .fukuoka{
+      background-position: 65% 35%;
+      margin-top: 20px;
+    }
+  }
+  .nav_main_flex{
+    display: block;
+  }
+  nav{
+    height: auto;
+    width: 100%;
+    border-bottom: 1px solid black;
+    min-height: 5vh;
+    ul{
+      display: flex;
+      justify-content: space-around;
+      padding-left: 0;
+    }
+    li{
+      margin-left: 30px;
+      margin-top: 5px;
+    }
+  }
+  main{
+    width: 400px;
+  }
+  .rsv{
+    display: block;
+    height: auto;
+    .rsv_menu{
+      border-top: 2px solid rgb(63, 136, 165);
+      table{
+        margin: 0 auto;
+      }
+    }
+  }
+}

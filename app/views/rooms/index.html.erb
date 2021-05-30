@@ -1,0 +1,30 @@
+<main>
+  <h2>登録済みルーム一覧</h2>
+  <%= render "shared/flash"%>
+  <table>
+    <thead>
+      <tr>
+        <th>ルーム画像</th>
+        <th>ルーム名</th>
+        <th>ルーム紹介</th>
+        <th>料金</th>
+        <th>作成日</th>
+        <th>編集</th>
+        <th>削除</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @rooms.each do |room| %>
+        <tr>
+          <td><%= image_tag room.image.to_s%></td>
+          <td><%= room.name %></td>
+          <td><%= room.introduction %></td>
+          <td><%= room.price %></td>
+          <td><%= l room.updated_at %></td>
+          <td><%= link_to "編集", edit_room_path(room) %></td>
+          <td><%= link_to "削除", room, method: :delete, data: {confirm: "削除しますか？"} %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</main>

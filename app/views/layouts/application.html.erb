@@ -6,11 +6,28 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all'%>
+    <%= javascript_pack_tag 'application'%>
   </head>
 
   <body>
+    <header>
+      <h1><%= link_to "Hotel Reserve", root_path, class: "title_link" %></h1>
+      <%= render "shared/search_box"%>
+      <%= render "shared/header_icon"%>
+    </header>
+    <div class = "black_back">
+    </div>
+    <ul class = "menu_list">
+      <li><%= link_to "ルーム登録", new_room_path, class: "menu_link" %></li>
+      <li><%= link_to "予約済みルーム一覧", reservations_path, class: "menu_link" %></li>
+      <li><%= link_to "登録済みルーム一覧", rooms_path, class: "menu_link" %></li>
+      <li><%= link_to "設定", edit_user_registration_path(current_user), class: "menu_link" %></li>
+      <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "menu_link" %></li>
+    </ul>
     <%= yield %>
+    <footer>
+      <p><small>&copy; 2020 HotelReserve.inc</small></p>
+    </footer>
   </body>
 </html>

@@ -1,0 +1,18 @@
+<div class="nav_main_flex">
+  <%= render "shared/navigator" %>
+
+  <main>
+  <h2>アカウント</h2>
+  <table>
+    <tr>
+      <th>メールアドレス</th>
+      <td><%= current_user.email %></td>
+    </tr>
+    <tr>
+      <th>パスワード</th>
+      <td>＊＊＊＊＊＊</td>
+    </tr>
+  </table>
+  <p><%= link_to "編集", account_edit_path(resource) %></p>
+  </main>
+</div>

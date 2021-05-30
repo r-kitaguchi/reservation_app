@@ -1,0 +1,17 @@
+<div class = "room_list">
+  <% @rooms.each do |room|%>
+    <ul>
+      <%= link_to new_reservation_path(room_id: room.id) do %>
+      <li>
+        <%= image_tag room.image.to_s %>
+      </li>
+      <% end %>
+      <%= link_to new_reservation_path(room_id: room.id) do%>
+      <li>
+        <%= room.name %>
+      </li>
+      <% end %>
+      <li>¥<%= room.price %></li>
+    </ul>
+  <% end %>
+</div>

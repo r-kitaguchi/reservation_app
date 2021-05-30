@@ -1,0 +1,44 @@
+<%= render "devise/shared/error_messages", resource: @reservation%>
+<div class = "rsv">
+  <div class = "rsv_room_detail">
+    <%= image_tag @room.image.to_s, class: "rsv_image"%>
+    <div>
+      <%= image_tag @user.image.to_s,  class: "rsv_user_icon"%>
+      <ul>
+        <li><%= @room.name %></li>
+        <li><%= @room.address %></li>
+      </ul>
+    </div>
+    <p><%= @room.introduction %></p>
+  </div>
+  <div class = "rsv_menu">
+    <%= form_with model: @reservation, url:confirm_new_reservations_path do |f|%>
+    <%= f.hidden_field :room_id, value: @room.id%>
+    <%= f.hidden_field :user_id, value: current_user.id%>
+    <table>
+      <tr>
+        <td class = "price">¥<%= @room.price%>/日</td>
+      </tr>
+      <tr>
+        <td>チェックイン</td>
+      </tr>
+      <tr>
+        <td><%= f.date_field :start_date, class: "rsv_field"%></td>
+      </tr>
+      <tr>
+        <td>チェックアウト</td>
+      </tr>
+      <tr>
+        <td><%= f.date_field :end_date, class: "rsv_field" %></td>
+      </tr>
+      <tr>
+        <td>人数</td>
+      </tr>
+      <tr>
+        <td><%= f.number_field :number, class: "rsv_field" %></td>
+      </tr>
+    </table>
+    <p><%= f.submit "予約する",class: "submit_but" %></p>
+    <% end %>
+  </div>
+</div>

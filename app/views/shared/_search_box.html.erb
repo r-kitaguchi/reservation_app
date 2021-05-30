@@ -1,0 +1,14 @@
+<ul class= "search_box">
+  <li>
+    <%= form_with url: search_rooms_path, method: :get, local: true do |f|%>
+      <%= fa_icon("map-marker")%>
+      <%= f.text_field :address_key, placeholder: "エリア", class: "search_field" %>
+    <% end %>
+  </li>
+  <li>
+    <%= form_with url: search_rooms_path, method: :get, local: true do |f|%>
+      <%= fa_icon("search")%>
+      <%= f.text_field :name_key, placeholder: "キーワード", class: "search_field" %>
+    <% end %>
+  </li>
+</ul>

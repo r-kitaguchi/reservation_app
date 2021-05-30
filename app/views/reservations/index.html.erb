@@ -1,0 +1,28 @@
+<main>
+  <%= render "shared/flash"%>
+  <h2>予約済みルーム一覧</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>部屋</th>
+        <th>チェックイン日</th>
+        <th>チェックアウト日</th>
+        <th>人数</th>
+        <th>受付日</th>
+        <th>予約取消</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @reservations.each do |reservation| %>
+      <tr>
+        <td><%= reservation.room.name %></td>
+        <td><%= reservation.start_date %></td>
+        <td><%= reservation.end_date %></td>
+        <td><%= reservation.number %></td>
+        <td><%= l reservation.updated_at %></td>
+        <td><%= link_to "削除", reservation, method: :delete, data: {confirm: "削除しますか？"} %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</main>

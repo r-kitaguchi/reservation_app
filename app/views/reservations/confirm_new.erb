@@ -1,0 +1,43 @@
+<div class = "confirm_rsv">
+  <h2>予約内容確認</h2>
+  <%= form_with model: @reservation, url:reservations_path do |f|%>
+    <%= f.hidden_field :room_id, value: @room.id%>
+    <%= f.hidden_field :user_id, value: current_user.id%>
+    <%= f.hidden_field :start_date, value: @reservation.start_date%>
+    <%= f.hidden_field :end_date, value: @reservation.end_date %>
+    <%= f.hidden_field :number, value: @reservation.number %>
+    <table>
+      <tr>
+        <td class = "price">¥<%= @room.price%>/日</td>
+      </tr>
+      <tr>
+        <td>チェックイン</td>
+      </tr>
+      <tr>
+        <td class = "rsv_field"><%= @reservation.start_date %></td>
+      </tr>
+      <tr>
+        <td>チェックアウト</td>
+      </tr>
+      <tr>
+        <td class = "rsv_field"><%= @reservation.end_date %></td>
+      </tr>
+      <tr>
+        <td>使用日数：<%= (@reservation.end_date - @reservation.start_date).to_i %>日</td>
+      </tr>
+      <tr>
+        <td>人数 : <%= @reservation.number %>人</td>
+      </tr>
+      <tr>
+        <td>合計金額</td>
+      </tr>
+      <tr>
+        <td class = "rsv_field"><%= @reservation.number * @room.price %>円</td>
+      </tr>
+    </table>
+    <p><%= f.submit "予約を確定",class: "submit_but" %></p>
+    <%= link_to new_reservation_path(room_id: @room.id) do %>
+      <p>戻る</p>
+    <% end %>
+  <% end %>
+  </div>

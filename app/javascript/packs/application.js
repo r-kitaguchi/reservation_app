@@ -4,10 +4,23 @@
 // that code so it'll be compiled.
 
 import Rails from "@rails/ujs"
-import Turbolinks from "turbolinks"
+// import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 
 Rails.start()
-Turbolinks.start()
+// Turbolinks.start()
 ActiveStorage.start()
+
+window.onload = function(){
+
+const menuList = document.querySelector(".menu_list");
+const blackBack = document.querySelector(".black_back");
+const userIcon = document.querySelector(".user_top_icon");
+userIcon.addEventListener('click', displayMenu);
+blackBack.addEventListener('click', displayMenu)
+
+function displayMenu(){
+  blackBack.classList.toggle("black_back_display")
+  menuList.classList.toggle("menu_display")
+}}

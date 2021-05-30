@@ -1,0 +1,39 @@
+ <div class = "background">
+  <div class = "top_search">
+    <h2>Hotel Reserveで今までにない経験を</h2>
+    <ul>
+      <li>エリア</li>
+      <%= form_with url: search_rooms_path, method: :get, local: true do |f|%>
+      <li>
+        <%= f.text_field :address_key, placeholder: "東京", class: "top_search_field" %>
+      <li>
+        <%= f.submit "探す", class: "search_but" %>
+      </li>
+      <% end %>
+      </li>
+    </ul>
+  </div>
+</div>
+<h3>おすすめエリア</h3>
+<ul class = "home_list">
+  <div class = "sapporo">
+    <%= link_to search_rooms_path(address_key: "札幌"), class: "list_link" do %>
+      <li>札幌</li>
+    <% end %>
+  </div>
+  <div class = "tokyo">
+    <%= link_to search_rooms_path(address_key: "東京"), class: "list_link" do %>
+      <li>東京</li>
+    <% end %>
+  </div>
+  <div class = "osaka">
+    <%= link_to search_rooms_path(address_key: "大阪"), class: "list_link" do %>
+      <li>大阪</li>
+    <% end %>
+  </div>
+  <div class = "fukuoka">
+    <%= link_to search_rooms_path(address_key: "福岡"), class: "list_link" do %>
+      <li>福岡</li>
+    <% end %>
+  </div>
+</ul>

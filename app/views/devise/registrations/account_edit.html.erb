@@ -1,0 +1,39 @@
+<main>
+
+  <h2>アカウント編集</h2>
+
+  <%= form_for(resource, as: resource_name, url: account_update_path, html: { method: :put }) do |f| %>
+  <%= render "devise/shared/error_messages" %>
+
+    <div class="field">
+      <%= f.label :email %><br />
+      <%= f.text_field :email, autofocus: true, autocomplete: "email", class: "form_field" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :password %> （変更する場合のみ入力）<br />
+      <% if @minimum_password_length %>
+        (<%= @minimum_password_length %> 文字以上)<br />
+      <% end %>
+      <%= f.password_field :password, autocomplete: "new-password", class: "form_field" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :password_confirmation %>（変更する場合のみ入力）<br />
+      <% if @minimum_password_length %>
+        (<%= @minimum_password_length %> 文字以上)<br />
+      <% end %>
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form_field" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :current_password %><br />
+      <%= f.password_field :current_password, autocomplete: "current-password", class: "form_field" %>
+    </div>
+
+    <div class="action">
+      <p><%= f.submit "更新", class: "submit_but"%></p>
+    </div>
+  <% end %>
+  <p><%= link_to "戻る",  show_path %></p>
+  </main>
