@@ -10,7 +10,7 @@
       <p><%= image_tag 'default.png', class: "user_icon" %></p>
     <% end %>
 
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+    <%= form_with model: resource, url: registration_path(resource_name), class: "edit_user", id: "edit_user" do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>
 
       <div class="field">

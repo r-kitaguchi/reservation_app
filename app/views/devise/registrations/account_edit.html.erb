@@ -2,7 +2,7 @@
 
   <h2>アカウント編集</h2>
 
-  <%= form_for(resource, as: resource_name, url: account_update_path, html: { method: :put }) do |f| %>
+  <%= form_with model: resource, url: account_update_path, class: "edit_user", id:"edit_user" do |f| %>
   <%= render "devise/shared/error_messages" %>
 
     <div class="field">

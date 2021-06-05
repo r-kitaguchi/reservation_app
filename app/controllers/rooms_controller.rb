@@ -1,5 +1,5 @@
 class RoomsController < ApplicationController
-  before_action :redirect_login, only: [:index, :new, :create, :edit, :update, :destroy]
+  before_action :redirect_login, except: [:search]
   def index
     @user = User.find(current_user.id)
     @rooms = @user.rooms
